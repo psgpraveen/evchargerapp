@@ -1,0 +1,154 @@
+{
+  "chargers": [
+    {
+      "name": "EXPRESSWAY CHARGING - MARIAM ENTERPRISE",
+      "id": "a001",
+      "address": "Connaught Place, Delhi",
+      "distance": "2100",
+      "distance_metrics": "metres",
+      "latitude": "28.6315",
+      "longitude": "77.2167",
+      "connector_types": ["lvl1dc-2", "lvl2dc-1", "normalac-1"]
+    },
+    {
+      "name": "EXPRESSWAY CHARGING STATION",
+      "id": "a002",
+      "address": "Connaught Place, Delhi",
+      "distance": "2100", 
+      "distance_metrics": "metres",
+      "latitude": "28.6325",
+      "longitude": "77.2180",
+      "connector_types": ["lvl1dc-2", "lvl2dc-1", "normalac-1"]
+    },
+    {
+      "name": "RAPID CHARGE POINT",
+      "id": "a003",
+      "address": "Basant Road, Delhi",
+      "distance": "1500",
+      "distance_metrics": "metres",
+      "latitude": "28.6380",
+      "longitude": "77.2050",
+      "connector_types": ["lvl1dc-1", "normalac-2"]
+    },
+    {
+      "name": "ECO POWER STATION",
+      "id": "a004",
+      "address": "Minto Road, Delhi",
+      "distance": "1800",
+      "distance_metrics": "metres",
+      "latitude": "28.6290",
+      "longitude": "77.2250",
+      "connector_types": ["lvl2dc-2"]
+    },
+    {
+      "name": "GREEN ENERGY HUB",
+      "id": "a005",
+      "address": "Middle Circle, Delhi",
+      "distance": "1200",
+      "distance_metrics": "metres",
+      "latitude": "28.6330",
+      "longitude": "77.2195",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "MUMBAI POWER GRID STATION",
+      "id": "a006",
+      "address": "Bandra Kurla Complex, Mumbai",
+      "distance": "1800",
+      "distance_metrics": "metres",
+      "latitude": "19.0665",
+      "longitude": "72.8508",
+      "connector_types": ["lvl1dc-2", "normalac-2"]
+    },
+    {
+      "name": "EV FAST CHARGE - JUHU",
+      "id": "a007",
+      "address": "Juhu Tara Road, Mumbai",
+      "distance": "2300",
+      "distance_metrics": "metres",
+      "latitude": "19.0989",
+      "longitude": "72.8261",
+      "connector_types": ["lvl2dc-2"]
+    },
+    {
+      "name": "BANGALORE E-ZONE CHARGING",
+      "id": "a008",
+      "address": "Whitefield, Bengaluru",
+      "distance": "1400",
+      "distance_metrics": "metres",
+      "latitude": "12.9698",
+      "longitude": "77.7499",
+      "connector_types": ["lvl1dc-2", "lvl2dc-1", "normalac-1"]
+    },
+    {
+      "name": "KORAMANGALA POWER PORT",
+      "id": "a009",
+      "address": "Koramangala, Bengaluru",
+      "distance": "1600",
+      "distance_metrics": "metres",
+      "latitude": "12.9352",
+      "longitude": "77.6141",
+      "connector_types": ["normalac-2"]
+    },
+    {
+      "name": "CHENNAI SUPERCHARGER HUB",
+      "id": "a010",
+      "address": "T. Nagar, Chennai",
+      "distance": "1900",
+      "distance_metrics": "metres",
+      "latitude": "13.0405",
+      "longitude": "80.2337",
+      "connector_types": ["lvl2dc-2", "normalac-1"]
+    },
+    {
+      "name": "EV GREEN STATION - HYDERABAD",
+      "id": "a011",
+      "address": "Banjara Hills, Hyderabad",
+      "distance": "2000",
+      "distance_metrics": "metres",
+      "latitude": "17.4160",
+      "longitude": "78.4565",
+      "connector_types": ["lvl1dc-1", "lvl2dc-2"]
+    },
+    {
+      "name": "KOLKATA SMART CHARGE",
+      "id": "a012",
+      "address": "Salt Lake, Kolkata",
+      "distance": "2100",
+      "distance_metrics": "metres",
+      "latitude": "22.5867",
+      "longitude": "88.4173",
+      "connector_types": ["normalac-2", "lvl2dc-1"]
+    },
+    {
+      "name": "AHMEDABAD EV SPOT",
+      "id": "a013",
+      "address": "Navrangpura, Ahmedabad",
+      "distance": "1700",
+      "distance_metrics": "metres",
+      "latitude": "23.0350",
+      "longitude": "72.5293",
+      "connector_types": ["lvl1dc-2"]
+    },
+    {
+      "name": "PUNE CHARGE ZONE",
+      "id": "a014",
+      "address": "Koregaon Park, Pune",
+      "distance": "1300",
+      "distance_metrics": "metres",
+      "latitude": "18.5362",
+      "longitude": "73.8937",
+      "connector_types": ["lvl2dc-1", "normalac-1"]
+    },
+    {
+      "name": "LUCKNOW ECO CHARGE",
+      "id": "a015",
+      "address": "Hazratganj, Lucknow",
+      "distance": "1100",
+      "distance_metrics": "metres",
+      "latitude": "26.8500",
+      "longitude": "80.9462",
+      "connector_types": ["normalac-2"]
+    }
+  ]
+}
