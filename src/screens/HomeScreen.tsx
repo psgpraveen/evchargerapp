@@ -225,7 +225,7 @@ const HomeScreen: React.FC = () => {
       {/* Search Bar */}
       <View style={styles.searchBar}>
         <View style={styles.dot} />
-        <Text style={styles.searchText}>Search for the compatible chargers</Text>
+        <Text style={styles.searchText}>Search for compatible chargers</Text>
         <TouchableOpacity style={styles.filterButton}>
           <Image source={require('../assets/icons/filter.png')} style={styles.filterIcon} />
         </TouchableOpacity>
