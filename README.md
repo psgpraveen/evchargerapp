@@ -3,7 +3,7 @@
 # EV Charger Mobile App
 
 A cross-platform React Native app for discovering and viewing EV charging stations on a map, with screenshot and Google Drive upload support.
-[⬇️ Download Latest APK](./android/app/build/outputs/apk/release/app-release.apk)
+[⬇️ Download Latest APK](./src/assets/app-release.apk)
 
 ![App Screenshot](./src/assets/image.png)
 
