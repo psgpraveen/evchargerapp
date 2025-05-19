@@ -149,6 +149,266 @@
       "latitude": "26.8500",
       "longitude": "80.9462",
       "connector_types": ["normalac-2"]
+    },
+    {
+      "name": "NEW YORK CITY SUPERCHARGER",
+      "id": "a016",
+      "address": "Manhattan, New York",
+      "distance": "2500",
+      "distance_metrics": "metres",
+      "latitude": "40.7580",
+      "longitude": "-73.9855",
+      "connector_types": ["lvl2dc-2", "normalac-1"]
+    },
+    {
+      "name": "LONDON GREEN CHARGE",
+      "id": "a017",
+      "address": "Westminster, London",
+      "distance": "2200",
+      "distance_metrics": "metres",
+      "latitude": "51.5074",
+      "longitude": "-0.1278",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "PARIS ECO STATION",
+      "id": "a018",
+      "address": "Champs-Élysées, Paris",
+      "distance": "1800",
+      "distance_metrics": "metres",
+      "latitude": "48.8566",
+      "longitude": "2.3522",
+      "connector_types": ["lvl2dc-2", "normalac-2"]
+    },
+    {
+      "name": "BERLIN FAST CHARGE",
+      "id": "a019",
+      "address": "Alexanderplatz, Berlin",
+      "distance": "2100",
+      "distance_metrics": "metres",
+      "latitude": "52.5200",
+      "longitude": "13.4050",
+      "connector_types": ["lvl1dc-2", "normalac-1"]
+    },
+    {
+      "name": "TOKYO EV HUB",
+      "id": "a020",
+      "address": "Shibuya, Tokyo",
+      "distance": "2300",
+      "distance_metrics": "metres",
+      "latitude": "35.6895",
+      "longitude": "139.6917",
+      "connector_types": ["lvl2dc-2", "normalac-1"]
+    },
+    {
+      "name": "SYDNEY CHARGE POINT",
+      "id": "a021",
+      "address": "Circular Quay, Sydney",
+      "distance": "1700",
+      "distance_metrics": "metres",
+      "latitude": "-33.8688",
+      "longitude": "151.2093",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "CAPE TOWN POWER STATION",
+      "id": "a022",
+      "address": "V&A Waterfront, Cape Town",
+      "distance": "2000",
+      "distance_metrics": "metres",
+      "latitude": "-33.9249",
+      "longitude": "18.4241",
+      "connector_types": ["normalac-2", "lvl2dc-1"]
+    },
+    {
+      "name": "RIO DE JANEIRO EV SPOT",
+      "id": "a023",
+      "address": "Copacabana, Rio de Janeiro",
+      "distance": "2400",
+      "distance_metrics": "metres",
+      "latitude": "-22.9068",
+      "longitude": "-43.1729",
+      "connector_types": ["lvl1dc-2", "normalac-1"]
+    },
+    {
+      "name": "TORONTO GREEN CHARGER",
+      "id": "a024",
+      "address": "Downtown, Toronto",
+      "distance": "1600",
+      "distance_metrics": "metres",
+      "latitude": "43.6532",
+      "longitude": "-79.3832",
+      "connector_types": ["lvl2dc-2", "normalac-2"]
+    },
+    {
+      "name": "SINGAPORE CITY CHARGE",
+      "id": "a025",
+      "address": "Marina Bay, Singapore",
+      "distance": "1500",
+      "distance_metrics": "metres",
+      "latitude": "1.3521",
+      "longitude": "103.8198",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "JAIPUR EV CHARGER",
+      "id": "in001",
+      "address": "MI Road, Jaipur",
+      "distance": "1800",
+      "distance_metrics": "metres",
+      "latitude": "26.9124",
+      "longitude": "75.7873",
+      "connector_types": ["lvl2dc-1", "normalac-2"]
+    },
+    {
+      "name": "SURAT GREEN STATION",
+      "id": "in002",
+      "address": "Ring Road, Surat",
+      "distance": "1700",
+      "distance_metrics": "metres",
+      "latitude": "21.1702",
+      "longitude": "72.8311",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "KANPUR FAST CHARGE",
+      "id": "in003",
+      "address": "Mall Road, Kanpur",
+      "distance": "1600",
+      "distance_metrics": "metres",
+      "latitude": "26.4499",
+      "longitude": "80.3319",
+      "connector_types": ["normalac-2"]
+    },
+    {
+      "name": "NAGPUR POWER HUB",
+      "id": "in004",
+      "address": "Sitabuldi, Nagpur",
+      "distance": "1500",
+      "distance_metrics": "metres",
+      "latitude": "21.1458",
+      "longitude": "79.0882",
+      "connector_types": ["lvl2dc-2"]
+    },
+    {
+      "name": "INDORE EV POINT",
+      "id": "in005",
+      "address": "MG Road, Indore",
+      "distance": "1400",
+      "distance_metrics": "metres",
+      "latitude": "22.7196",
+      "longitude": "75.8577",
+      "connector_types": ["lvl1dc-2", "normalac-1"]
+    },
+    {
+      "name": "THANE CHARGER STATION",
+      "id": "in006",
+      "address": "Ghodbunder Road, Thane",
+      "distance": "1300",
+      "distance_metrics": "metres",
+      "latitude": "19.2183",
+      "longitude": "72.9781",
+      "connector_types": ["lvl2dc-1", "normalac-1"]
+    },
+    {
+      "name": "BHOPAL ECO CHARGE",
+      "id": "in007",
+      "address": "New Market, Bhopal",
+      "distance": "1200",
+      "distance_metrics": "metres",
+      "latitude": "23.2599",
+      "longitude": "77.4126",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "VISAKHAPATNAM EV HUB",
+      "id": "in008",
+      "address": "RK Beach, Visakhapatnam",
+      "distance": "1100",
+      "distance_metrics": "metres",
+      "latitude": "17.6868",
+      "longitude": "83.2185",
+      "connector_types": ["normalac-2"]
+    },
+    {
+      "name": "PATNA GREEN CHARGER",
+      "id": "in009",
+      "address": "Fraser Road, Patna",
+      "distance": "1000",
+      "distance_metrics": "metres",
+      "latitude": "25.5941",
+      "longitude": "85.1376",
+      "connector_types": ["lvl2dc-2", "normalac-1"]
+    },
+    {
+      "name": "VADODARA EV STATION",
+      "id": "in010",
+      "address": "Alkapuri, Vadodara",
+      "distance": "900",
+      "distance_metrics": "metres",
+      "latitude": "22.3072",
+      "longitude": "73.1812",
+      "connector_types": ["lvl1dc-2"]
+    },
+    {
+      "name": "GHAZIABAD FAST CHARGE",
+      "id": "in011",
+      "address": "Kaushambi, Ghaziabad",
+      "distance": "800",
+      "distance_metrics": "metres",
+      "latitude": "28.6692",
+      "longitude": "77.4538",
+      "connector_types": ["lvl2dc-1", "normalac-2"]
+    },
+    {
+      "name": "LUDHIANA EV POINT",
+      "id": "in012",
+      "address": "Ferozepur Road, Ludhiana",
+      "distance": "700",
+      "distance_metrics": "metres",
+      "latitude": "30.9005",
+      "longitude": "75.8573",
+      "connector_types": ["lvl1dc-1", "lvl2dc-1"]
+    },
+    {
+      "name": "AGRA GREEN STATION",
+      "id": "in013",
+      "address": "Taj Road, Agra",
+      "distance": "600",
+      "distance_metrics": "metres",
+      "latitude": "27.1767",
+      "longitude": "78.0081",
+      "connector_types": ["normalac-2"]
+    },
+    {
+      "name": "NASHIK CHARGER HUB",
+      "id": "in014",
+      "address": "College Road, Nashik",
+      "distance": "500",
+      "distance_metrics": "metres",
+      "latitude": "19.9975",
+      "longitude": "73.7898",
+      "connector_types": ["lvl2dc-2", "normalac-1"]
+    },
+    {
+      "name": "FARIDABAD EV STATION",
+      "id": "in015",
+      "address": "Sector 15, Faridabad",
+      "distance": "400",
+      "distance_metrics": "metres",
+      "latitude": "28.4089",
+      "longitude": "77.3178",
+      "connector_types": ["lvl1dc-2"]
+    },
+    {
+      "name": "MEERUT FAST CHARGE",
+      "id": "in016",
+      "address": "Shastri Nagar, Meerut",
+      "distance": "300",
+      "distance_metrics": "metres",
+      "latitude": "28.9845",
+      "longitude": "77.7064",
+      "connector_types": ["lvl2dc-1", "normalac-1"]
     }
   ]
 }

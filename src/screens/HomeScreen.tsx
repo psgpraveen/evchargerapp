@@ -226,83 +226,91 @@ const HomeScreen: React.FC = () => {
       <View style={styles.searchBar}>
         <View style={styles.dot} />
         <Text style={styles.searchText}>Search for the compatible chargers</Text>
-        <Image source={require('../assets/icons/filter.png')} style={styles.filterIcon} />
+        <TouchableOpacity style={styles.filterButton}>
+          <Image source={require('../assets/icons/filter.png')} style={styles.filterIcon} />
+        </TouchableOpacity>
       </View>
       
       {/* Map */}
       <ViewShot ref={viewShotRef} style={styles.mapContainer}>
-        <MapView
-          ref={mapRef}
-          provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          initialRegion={initialRegion}
-          customMapStyle={darkMapStyle}
-          showsUserLocation={true}
-          showsCompass={true}
-          showsScale={true}
-          showsBuildings={false}
-          showsIndoors={false}
-          region={userLocation ? {
-            latitude: userLocation.latitude,
-            longitude: userLocation.longitude,
-            latitudeDelta: 0.012,
-            longitudeDelta: 0.012,
-          } : initialRegion}
-        >
-          {/* User Marker (optional, since showsUserLocation shows blue dot) */}
-          {userLocation && (
-            <Marker coordinate={userLocation}>
-              <View style={{ alignItems: 'center' }}>
+        <View style={styles.mapCardShadow}>
+          <MapView
+            ref={mapRef}
+            provider={PROVIDER_GOOGLE}
+            style={styles.map}
+            initialRegion={initialRegion}
+            customMapStyle={darkMapStyle}
+            showsUserLocation={true}
+            showsCompass={true}
+            showsScale={true}
+            showsBuildings={false}
+            showsIndoors={false}
+            region={userLocation ? {
+              latitude: userLocation.latitude,
+              longitude: userLocation.longitude,
+              latitudeDelta: 0.012,
+              longitudeDelta: 0.012,
+            } : initialRegion}
+          >
+            {/* User Marker (optional, since showsUserLocation shows blue dot) */}
+            {userLocation && (
+              <Marker coordinate={userLocation}>
                 <View style={styles.userMarkerOuter}>
+                  <View style={styles.userMarkerGlow} />
                   <Image
                     source={require('../assets/icons/navigation.png')}
                     style={styles.userNavIcon}
                   />
                 </View>
-                <Text style={{ color: '#ff2a7f', fontWeight: 'bold', marginTop: 2, fontSize: 12 }}>You</Text>
-              </View>
-            </Marker>
-          )}
-          {/* Charger Markers */}
-          {chargers.map((charger, idx) => {
-            const lat = parseFloat(charger.latitude);
-            const lng = parseFloat(charger.longitude);
-            if (isNaN(lat) || isNaN(lng)) return null;
-            const distance =
-              userLocation
-                ? `${getDistanceFromLatLonInKm(
-                    userLocation.latitude,
-                    userLocation.longitude,
-                    lat,
-                    lng
-                  ).toFixed(2)} Km`
-                : '';
-            return (
-              <Marker
-                key={charger.id}
-                coordinate={{ latitude: lat, longitude: lng }}
-                onPress={() => setSelectedCharger(charger)}
-              >
-                <View style={styles.chargerMarker}>
-                  <Text style={styles.chargerMarkerText}>{idx + 2}</Text>
-                  {distance ? (
-                    <Text style={{ color: '#fff', fontSize: 10 }}>{distance}</Text>
-                  ) : null}
-                </View>
+                <Text style={styles.userMarkerLabel}>You</Text>
               </Marker>
-            );
-          })}
-        </MapView>
+            )}
+            {/* Charger Markers */}
+            {chargers.map((charger, idx) => {
+              const lat = parseFloat(charger.latitude);
+              const lng = parseFloat(charger.longitude);
+              if (isNaN(lat) || isNaN(lng)) return null;
+              const distance =
+                userLocation
+                  ? `${getDistanceFromLatLonInKm(
+                      userLocation.latitude,
+                      userLocation.longitude,
+                      lat,
+                      lng
+                    ).toFixed(2)} Km`
+                  : '';
+              return (
+                <Marker
+                  key={charger.id}
+                  coordinate={{ latitude: lat, longitude: lng }}
+                  onPress={() => setSelectedCharger(charger)}
+                >
+                  <View style={styles.chargerMarkerShadow}>
+                    <View style={styles.chargerMarker}>
+                      <Text style={styles.chargerMarkerText}>{idx + 2}</Text>
+                      {distance ? (
+                        <Text style={styles.chargerMarkerDistance}>{distance}</Text>
+                      ) : null}
+                    </View>
+                  </View>
+                </Marker>
+              );
+            })}
+          </MapView>
+        </View>
       </ViewShot>
       
       {/* FAB */}
-      <TouchableOpacity style={styles.fab} onPress={captureMap}>
-        <Text style={styles.fabIcon}>📸</Text>
+      <TouchableOpacity style={styles.fab} onPress={captureMap} activeOpacity={0.8}>
+        <View style={styles.fabGradient}>
+          <Text style={styles.fabIcon}>📸</Text>
+        </View>
       </TouchableOpacity>
       
       {/* Bottom Card */}
       {selectedCharger && (
         <View style={styles.bottomCard}>
+          <View style={styles.bottomCardBlur} />
           <Text style={styles.chargerTitle}>{selectedCharger.name.toUpperCase()}</Text>
           <View style={styles.addressContainer}>
             <Text style={styles.chargerAddress}>{selectedCharger.address}, </Text>
@@ -316,7 +324,6 @@ const HomeScreen: React.FC = () => {
                   ).toFixed(2)} Km`
                 : '... Km'}
             </Text>
-            {/* Update the path below if your folder is 'icone' instead of 'icons' */}
             <Image source={require('../assets/icons/navigation.png')} style={styles.navIcon} />
           </View>
           <Text style={styles.supportedConnectors}>SUPPORTED CONNECTORS</Text>
@@ -328,7 +335,9 @@ const HomeScreen: React.FC = () => {
             else if (label === 'normalac') { display = 'Normal AC'; power = '3kW Charging'; }
             return (
               <View key={idx} style={styles.connectorRow}>
-                <Image source={require('../assets/icons/connector.png')} style={styles.connectorIcon} />
+                <View style={styles.connectorIconBg}>
+                  <Image source={require('../assets/icons/connector.png')} style={styles.connectorIcon} />
+                </View>
                 <Text style={styles.connectorLabel}>{display}</Text>
                 <Text style={styles.connectorPower}>{power}</Text>
                 <Text style={styles.connectorCount}>x{count}</Text>
@@ -363,9 +372,25 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     flex: 1,
+    marginTop: 90,
+    marginHorizontal: 10,
+    borderRadius: 24,
+    overflow: 'hidden',
+    backgroundColor: '#181c22',
+    elevation: 6,
+  },
+  mapCardShadow: {
+    flex: 1,
+    borderRadius: 24,
+    overflow: 'hidden',
+    shadowColor: '#00ffb4',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.15,
+    shadowRadius: 16,
   },
   map: {
     flex: 1,
+    borderRadius: 24,
   },
   searchBar: {
     position: 'absolute',
@@ -374,16 +399,16 @@ const styles = StyleSheet.create({
     right: 16,
     zIndex: 10,
     elevation: 5,
-    backgroundColor: '#222222',
-    borderRadius: 20,
+    backgroundColor: '#23272e',
+    borderRadius: 24,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 18,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
   },
   dot: {
     width: 12,
@@ -397,141 +422,233 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
   },
+  filterButton: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    padding: 6,
+    marginLeft: 8,
+    elevation: 2,
+  },
   filterIcon: {
-    width: 24,
-    height: 24,
+    width: 26,
+    height: 26,
     tintColor: '#00ffb4',
   },
   userMarkerOuter: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#ff2a7f33', // pink with transparency
+    width: 38, 
+    height: 38, 
+    borderRadius: 28,
+    backgroundColor: '#ff2a7f33',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
+    borderWidth: 1, 
     borderColor: '#ff2a7f',
+    position: 'relative',
+    overflow: 'visible', 
+    padding: 8, 
   },
-  userMarkerInner: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: '#ff2a7f',
-    borderWidth: 3,
-    borderColor: '#ffffff',
+  userMarkerGlow: {
+    position: 'absolute',
+    width: 70, 
+    height: 70, 
+    borderRadius: 35,
+    backgroundColor: '#ff2a7f44',
+    opacity: 0.5,
+    zIndex: -1,
+    top: -7,
+    left: -7,
   },
   userNavIcon: {
-    width: 32,
-    height: 32,
+    width: 40,
+    height: 40, 
     tintColor: '#ff2a7f',
+    resizeMode: 'contain', 
+  },
+  userMarkerLabel: {
+    color: '#ff2a7f',
+    fontWeight: 'bold',
+    marginTop: 2,
+    fontSize: 13,
+    textShadowColor: '#000',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
+    alignSelf: 'center',
+  },
+  chargerMarkerShadow: {
+    shadowColor: '#2ee6d6',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 6,
+    borderRadius: 20,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   chargerMarker: {
     backgroundColor: '#2ee6d6',
     borderRadius: 20,
-    width: 40,
-    height: 40,
+    width: 44,
+    height: 44,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 3,
+    elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
-    shadowRadius: 2,
+    shadowRadius: 4,
   },
   chargerMarkerText: {
     color: '#ffffff',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 18,
+  },
+  chargerMarkerDistance: {
+    color: '#fff',
+    fontSize: 10,
+    marginTop: 2,
+    fontWeight: '600',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   fab: {
     position: 'absolute',
     bottom: 40,
     right: 24,
-    backgroundColor: '#222222',
     borderRadius: 30,
-    width: 60,
-    height: 60,
+    width: 64,
+    height: 64,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
+    elevation: 10,
+    shadowColor: '#00ffb4',
+    shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.3,
-    shadowRadius: 4,
+    shadowRadius: 8,
+  },
+  fabGradient: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    borderRadius: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'linear-gradient(135deg, #00ffb4 0%, #2ee6d6 100%)',
   },
   fabIcon: {
-    color: '#ffffff',
-    fontSize: 28,
+    color: '#23272e',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textShadowColor: '#fff',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   bottomCard: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#222222',
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    padding: 20,
-    elevation: 10,
+    backgroundColor: 'rgba(34,34,34,0.95)',
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    padding: 24,
+    elevation: 12,
     zIndex: 1000,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -3 },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
+    shadowColor: '#00ffb4',
+    shadowOffset: { width: 0, height: -4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    overflow: 'hidden',
+  },
+  bottomCardBlur: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(34,34,34,0.7)',
+    zIndex: -1,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
   },
   chargerTitle: {
     color: '#ffffff',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 20,
     textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginBottom: 4,
   },
   addressContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 4,
+    marginTop: 6,
+    marginBottom: 2,
   },
   chargerAddress: {
     color: '#ffffff',
+    fontSize: 15,
+    fontWeight: '500',
   },
   chargerDistance: {
-    color: '#ff2a7f',
+    color: '#00ffb4',
     fontWeight: 'bold',
+    marginLeft: 4,
+    fontSize: 15,
   },
   navIcon: {
-    width: 20,
-    height: 20,
-    tintColor: '#ff2a7f',
-    marginLeft: 4,
+    width: 22,
+    height: 22,
+    tintColor: '#00ffb4',
+    marginLeft: 6,
   },
   supportedConnectors: {
     color: '#00ffb4',
     fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 8,
+    marginTop: 16,
+    marginBottom: 10,
     textTransform: 'uppercase',
+    fontSize: 13,
+    letterSpacing: 1,
   },
   connectorRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 4,
+    marginVertical: 6,
+    backgroundColor: '#23272e',
+    borderRadius: 12,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    marginBottom: 4,
+    shadowColor: '#00ffb4',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+  },
+  connectorIconBg: {
+    backgroundColor: '#181c22',
+    borderRadius: 8,
+    padding: 4,
+    marginRight: 10,
   },
   connectorIcon: {
     width: 28,
     height: 28,
-    marginRight: 8,
+    tintColor: '#00ffb4',
   },
   connectorLabel: {
     color: '#ffffff',
     fontWeight: 'bold',
     flex: 1,
+    fontSize: 15,
   },
   connectorPower: {
-    color: '#00ffb4',
-    marginRight: 8,
+    color: '#2ee6d6',
+    marginRight: 10,
+    fontSize: 13,
+    fontWeight: '500',
   },
   connectorCount: {
     color: '#ffffff',
     fontWeight: 'bold',
+    fontSize: 15,
+    marginLeft: 6,
   },
 });
 
