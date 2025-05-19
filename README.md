@@ -4,7 +4,7 @@
 
 A cross-platform React Native app for discovering and viewing EV charging stations on a map, with screenshot and Google Drive upload support.
 
-![App Screenshot](./src/assets/image.png
+![App Screenshot](./src/assets/image.png)
 
 - 📍 **Map View:** See all nearby EV charging stations with connector counts.
 - 🟣 **Current Location:** Your position is shown as a highlighted pink marker.
